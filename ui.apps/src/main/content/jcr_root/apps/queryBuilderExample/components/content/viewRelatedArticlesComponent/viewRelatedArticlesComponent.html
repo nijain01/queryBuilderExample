@@ -1,0 +1,38 @@
+<div class="view_related_articles_cont">
+
+
+    <div data-sly-use.viewarticlesbean="com.wmt.aep.components.htl.ViewRelatedArticlesComponent">
+        <div class="thumnail_container_news">
+            <!--span class="related_article hiddenArticle"></span-->
+            <span class="related_article hiddenArticle"> <h4><div
+                    data-sly-resource="${'viewArticleHeading' @ resourceType='/apps/aep/components/content/aep/viewRelatedArticlesComponent/headingtext'}"></div></h4></span>
+            <div class="thumbimages_news">
+                <div data-sly-list.article="${viewarticlesbean.articlesBean}">
+                    <a href="${article.path}.html" target="_self">
+                        <div class="thumbone_news hiddenArticle">
+							<span class="rectimage_news">
+									<img class="leftImage_news" src="${article.imagePath}">
+							</span>
+                            <div class="imagecont_news">
+                                <p class="imageheader_news">${article.title}</p>
+                                <span class="text-style-11"><%= slingRequest
+								.getResourceBundle(slingRequest.getLocale())
+								.getString("relatedArticlesUpdatedText") %> ${article.relativePublishedDate}</span>
+                            </div>
+                        </div>
+                    </a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="show_more_comments_news blocked col-md-4">
+                <span>Show more</span>
+            </div>
+        </div>
+
+    </div>
+</div>
